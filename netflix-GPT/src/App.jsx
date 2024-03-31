@@ -1,11 +1,7 @@
-import './App.css'
-
+import Body from './components/Body'
 function App() {
-  
   return (
-    <>
-    <p className=''>hey netflix </p>
-    </>
+    <Body/>
   )
 }
 
