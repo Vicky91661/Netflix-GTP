@@ -5,8 +5,9 @@
     npm install -D tailwindcss postcss autoprefixer
     npx tailwindcss init -p
 # Features:
+## FrontEnd
 - Login / Sign Up
-    - Sign In / Sign Up From
+    - Sign In / Sign Up Form
     - Redirect to the Browse Page
 - Browse Page
     - Header
@@ -18,4 +19,5 @@
 - GPT 
     - Search Bar
     - Movie Suggestions
-
+## BackEnd
+- JWT Token for Login and Sign Up
