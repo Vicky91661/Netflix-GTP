@@ -1,13 +1,14 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState,useEffect } from 'react'
 import Header from './Header'
 import ValidateInput from './../utils/InputValidation.js'
 import axios from 'axios';
 import { useNavigate  } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch ,useSelector} from 'react-redux';
 import { addUser } from '../utils/userSlice.js';
 
 function Login() {
-
+    const isUser = useSelector((state) => state.user.name)
+    console.log("inside the login page user is  ",isUser)
     const email= useRef(null)
     const password= useRef(null)
     const name= useRef(null)
@@ -20,6 +21,12 @@ function Login() {
     function toogleSignIn(){
         setIsSignIn(!isSignIn)
     }
+
+    useEffect(()=>{
+        if(isUser){
+          navigate("/browse")
+        }
+    },[isUser])
 
     async function SubmitForm(){
         let isError;
@@ -36,9 +43,6 @@ function Login() {
                     password:password.current.value,
                     isSignin:true   
                 }).then((response)=>{
-                    console.log("name of user is => ",response.data.name)
-                    console.log("token is => ",response.data.token)
-
                     dispatch(addUser({
                         name:response.data.name,
                         email:response.data.email,
@@ -46,7 +50,6 @@ function Login() {
                     }))
                     navigate("/browse");
                 }).catch((error)=>{
-                    console.log(error)
                     setError(error.response.data.message)
                 })
             }else{
@@ -56,8 +59,6 @@ function Login() {
                     password:password.current.value,
                     isSignin:false
                 }).then((response)=>{
-                    console.log("name of user is => ",response.data.name)
-                    console.log("token is => ",response.data.token)
                     dispatch(addUser({
                         name:response.data.name,
                         email:response.data.email,
@@ -65,7 +66,6 @@ function Login() {
                     }))
                     navigate("/browse");
                 }).catch((error)=>{
-                    console.log(error)
                     setError(error.response.data.message)
                 })
             }   
