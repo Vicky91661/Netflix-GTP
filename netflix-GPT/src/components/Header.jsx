@@ -17,14 +17,14 @@ function Header() {
   
 
   return (
-    <div className=' absolute left-[5%] md:left-[18%] top-1 z-10 flex items-center gap-[40vw]'>
+    <div className=' absolute left-[5%] md:left-[18%] top-1 z-20 flex items-center gap-[40vw]'>
       <div>
         <img className=' w-[32vw] md:w-[24vw] lg:w-[20vw] xl:lg:w-[10vw]' src={LOGO} alt="logoi" />
       </div>
       {
         name &&<div className=' flex items-center gap-5'>
         <img src="" alt="" />
-        <h4 className='  font-medium text-lg'>Welcome, {name.split(" ")[0]}</h4>
+        <h4 className='  font-medium text-lg text-white'>Welcome, {name.split(" ")[0]}</h4>
         <button onClick={logoutHandler} className='bg-red-700 text-white font-semibold rounded-md py-3 px-6 text-lg'>Logout</button>
       </div>
       }

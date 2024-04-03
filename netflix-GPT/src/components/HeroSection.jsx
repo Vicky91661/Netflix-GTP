@@ -13,8 +13,9 @@ function HeroSection() {
 
   return (
     <div>
-        <VideoSection movieid={movieid}/>
         <MovieTitle title={original_title} description = {overview}/>
+        <VideoSection movieid={movieid}/>
+        
     </div>
   )
 }

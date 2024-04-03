@@ -4,9 +4,16 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import useNowPlaying from '../hooks/useNowPlaying'
 import HeroSection from './HeroSection'
-import ListMovies from './ListMovies'
+import SecondaryContainer from './SecondaryContainer'
+import useTrandingMovies from '../hooks/useTrandingMovies'
+import useTopRatedMovies from '../hooks/useTopRatedMovies'
+import useUpcomingMovies from '../hooks/useUpcomingMovies'
+
 function Browse() {
   useNowPlaying()
+  useTrandingMovies()
+  useTopRatedMovies()
+  useUpcomingMovies()
   const isUser = useSelector((state) => state.user.name)
   console.log("inside the broswer user is",isUser)
   const navigate = useNavigate()
@@ -21,7 +28,7 @@ function Browse() {
     <div>
       <Header/>
       <HeroSection/>
-      <ListMovies/>
+      <SecondaryContainer/>
     </div>
   )
 }
