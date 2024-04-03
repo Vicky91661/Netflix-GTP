@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { removeUser } from '../utils/userSlice'
 import { useNavigate } from 'react-router-dom'
 import { LOGO } from '../utils/Constant'
+import { gptToggleFun } from '../utils/gptSlice'
 function Header() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -14,6 +15,10 @@ function Header() {
     navigate("/")
   }
 
+  function handleToggleChanges(){
+    dispatch(gptToggleFun())
+  }
+
   
 
   return (
@@ -23,6 +28,7 @@ function Header() {
       </div>
       {
         name &&<div className=' flex items-center gap-5'>
+          <button className='text-white' onClick={handleToggleChanges}>Gemini GPT</button>
         <img src="" alt="" />
         <h4 className='  font-medium text-lg text-white'>Welcome, {name.split(" ")[0]}</h4>
         <button onClick={logoutHandler} className='bg-red-700 text-white font-semibold rounded-md py-3 px-6 text-lg'>Logout</button>

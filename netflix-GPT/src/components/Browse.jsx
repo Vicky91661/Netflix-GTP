@@ -8,6 +8,7 @@ import SecondaryContainer from './SecondaryContainer'
 import useTrandingMovies from '../hooks/useTrandingMovies'
 import useTopRatedMovies from '../hooks/useTopRatedMovies'
 import useUpcomingMovies from '../hooks/useUpcomingMovies'
+import SearchPage from './SearchPage'
 
 function Browse() {
   useNowPlaying()
@@ -15,6 +16,7 @@ function Browse() {
   useTopRatedMovies()
   useUpcomingMovies()
   const isUser = useSelector((state) => state.user.name)
+  const istoggle = useSelector((state)=>state.gpt.gptToggleButton)
   console.log("inside the broswer user is",isUser)
   const navigate = useNavigate()
 
@@ -27,8 +29,12 @@ function Browse() {
   return (
     <div>
       <Header/>
-      <HeroSection/>
-      <SecondaryContainer/>
+      {istoggle?<SearchPage/>:
+      <>
+        <HeroSection/>
+        <SecondaryContainer/>
+      </>}
+      
     </div>
   )
 }
