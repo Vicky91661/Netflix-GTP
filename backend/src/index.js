@@ -4,6 +4,7 @@ var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
 
 const {User}  = require("../src/database/user.js");
+const { genAI } = require("./utils/openAI.js");
 
 const app = express();
 
@@ -115,7 +116,23 @@ app.post("/signin",async(req,res)=>{
 
    
 })
-
+app.post("/gptSearch",async(req,res)=>{
+    try {
+        const prompt = req.body.prompt;
+        const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        const text = response.text();
+        res.status(200).json({
+            message:text
+        })
+    } catch (error) {
+        res.status(400).json({
+            message:"Something went wrong while fetching from Gemini Api"
+        })
+    }
+   
+})
 app.listen(PORT,()=>{
     console.log("listning at ",PORT)
 })
