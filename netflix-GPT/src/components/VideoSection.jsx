@@ -4,17 +4,14 @@ import { options } from '../utils/NowPlaying';
 
 function VideoSection({movieid}) {
     const [key, setKey] = useState(null)
-    console.log("movies id is =>",movieid)
 
     const fetchTrailer = async ()=>{
         const url = `https://api.themoviedb.org/3/movie/${movieid}/videos`;
         try {
             const response = await axios.get(url, options);
-            console.log("Response inside the video section",response)
             const movieVideo= response.data.results
             const trailers = movieVideo.filter((data)=>data.type==="Trailer")
             const trailer = trailers.length ?trailers[0]:movieVideo[0]
-            console.log("trailer of movie is ",trailer)
             setKey(trailer.key);    
         } catch (error) {
             console.log("error inside the video section",error)

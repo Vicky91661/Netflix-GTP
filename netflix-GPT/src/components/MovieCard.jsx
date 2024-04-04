@@ -7,7 +7,7 @@ function MovieCard({movieId,poster_path}) {
 
   const navigate = useNavigate()
   const handleMovieCardClick = ()=>{
-      navigate()
+    navigate(`/movie/${movieId}`)
   }
 
   return (
