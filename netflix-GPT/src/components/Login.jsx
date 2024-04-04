@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate  } from 'react-router-dom';
 import { useDispatch ,useSelector} from 'react-redux';
 import { addUser } from '../utils/userSlice.js';
+import { addGeminiMovies } from '../utils/gptSlice.js';
 
 function Login() {
     const isUser = useSelector((state) => state.user.name)

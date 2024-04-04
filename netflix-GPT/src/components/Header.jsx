@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { removeUser } from '../utils/userSlice'
 import { useNavigate } from 'react-router-dom'
 import { LOGO } from '../utils/Constant'
-import { gptToggleFun } from '../utils/gptSlice'
+import { addGeminiMovies, gptToggleFun } from '../utils/gptSlice'
 function Header() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -16,6 +16,7 @@ function Header() {
   }
 
   function handleToggleChanges(){
+    dispatch(addGeminiMovies({geminiMoviesName:null,geminiMovies:null}))
     dispatch(gptToggleFun())
   }
 

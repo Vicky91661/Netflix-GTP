@@ -1,10 +1,17 @@
 import React from 'react'
 import { IMG_URL } from '../utils/Constant'
+import { useNavigate } from 'react-router-dom';
 
-function MovieCard({rating,poster_path}) {
+function MovieCard({movieId,poster_path}) {
   if(!poster_path) return null;
+
+  const navigate = useNavigate()
+  const handleMovieCardClick = ()=>{
+      navigate()
+  }
+
   return (
-    <div className=' min-w-24 md:min-w-48'>
+    <div className=' min-w-24 md:min-w-48 cursor-pointer' onClick={handleMovieCardClick}>
         <div className=''>
             <img className='w-24 md:w-48 rounded-md' src={IMG_URL+poster_path} alt="movies poster" />
         </div>

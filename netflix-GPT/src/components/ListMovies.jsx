@@ -8,7 +8,7 @@ function ListMovies({title,movies}) {
       <h1 className='md:text-2xl'>{title}</h1>
       <div className='flex gap-2 md:gap-4 overflow-x-scroll scrollbar-thin  scrollbar-thumb-red-700 scrollbar-corner-transparentscrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-track-transparent scrollbar-thumb-cursor-pointer'>
         {movies.map((movie)=>{
-          return (<MovieCard key={movie.id} rating={movie.vote_average} poster_path={movie.poster_path}/>)
+          return (<MovieCard key={movie.id} movieId={movie.id} poster_path={movie.poster_path}/>)
         })}
       </div> 
       
