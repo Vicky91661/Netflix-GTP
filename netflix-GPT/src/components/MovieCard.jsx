@@ -2,6 +2,7 @@ import React from 'react'
 import { IMG_URL } from '../utils/Constant'
 
 function MovieCard({rating,poster_path}) {
+  if(!poster_path) return null;
   return (
     <div className=' min-w-24 md:min-w-48'>
         <div className=''>
