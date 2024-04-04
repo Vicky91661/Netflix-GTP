@@ -22,20 +22,21 @@ function Header() {
   
 
   return (
-    <div className=' absolute left-[5%] md:left-[18%] top-1 z-20 flex items-center gap-[40vw]'>
-      <div>
-        <img className=' w-[32vw] md:w-[24vw] lg:w-[20vw] xl:lg:w-[10vw]' src={LOGO} alt="logoi" />
+    <div className='bg-black md:bg-transparent py-2 md:py-0 md:absolute  top-1 z-20'>
+      <div className='w-[97.5vw] flex justify-between md:px-5 xl:px-[74px]'>
+          <div>
+            <img className=' w-[32vw] md:w-[24vw] lg:w-[20vw] xl:lg:w-[10vw]' src={LOGO} alt="logoi" />
+          </div>
+          {
+            name &&<div className=' flex items-center gap-2 md:gap-5'>
+              <button className='text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 
+              font-medium rounded-lg text-sm md:text-base px-3 py-2 md:px-5 md:py-2.5 text-center md:me-2 md:mb-2' onClick={handleToggleChanges}>Gemini GPT</button>
+            <img src="" alt="" />
+            <h4 className=' hidden md:inline-block font-medium text-lg text-white'>Welcome, {name.split(" ")[0]}</h4>
+            <button onClick={logoutHandler} className='bg-red-700 text-white font-medium rounded-lg text-sm md:text-base px-3 py-2'>Logout</button>
+          </div>
+          }
       </div>
-      {
-        name &&<div className=' flex items-center gap-5'>
-          <button className='text-white' onClick={handleToggleChanges}>Gemini GPT</button>
-        <img src="" alt="" />
-        <h4 className='  font-medium text-lg text-white'>Welcome, {name.split(" ")[0]}</h4>
-        <button onClick={logoutHandler} className='bg-red-700 text-white font-semibold rounded-md py-3 px-6 text-lg'>Logout</button>
-      </div>
-      }
-      
-        
     </div>
   )
 }
