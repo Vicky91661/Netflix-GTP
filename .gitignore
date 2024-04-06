@@ -24,5 +24,4 @@ dist-ssr
 *.sln
 *.sw?
 
-backend/.env
-netflix-GPT/.env
+*/.env
