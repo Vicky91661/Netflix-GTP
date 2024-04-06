@@ -5,7 +5,7 @@ var bcrypt = require('bcrypt');
 const jwt_secret_key = "vicky"
 const saltRounds = 10;
 
-const userController = async(req,res)=>{
+const userSignin = async(req,res)=>{
         const email = req.body.email;
         const password = req.body.password;
         const isSignin = req.body.isSignin;
@@ -75,4 +75,4 @@ const userController = async(req,res)=>{
        
 }
 
-module.exports  = {userController}
+module.exports  = {userSignin}

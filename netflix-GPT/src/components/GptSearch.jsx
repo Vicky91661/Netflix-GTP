@@ -27,7 +27,13 @@ function GptSearch() {
         const prompt = "Act like movie recommendation system, Suggest movie of given prompt:"+data+
         ". Give me name of 5 movie with comma seperated. For example:phir hera pheri,Guddar,sanam teri kasam,Himmatwala,Pariwar"
         try {
-            const response = await axios.post("http://localhost:3000/gpt/gptSearch",{prompt})
+            const userData = localStorage.getItem('user')
+            const {token}=JSON.parse(userData)
+            console.log(token)
+            const response = await axios.post("http://localhost:3000/gpt/gptSearch",{prompt},{ 
+                headers: {
+                  token
+                }})
             const GiminiMovies = response.data.message.split(",")
             const movies_Promise=GiminiMovies.map((movie)=>{
                 if(movie[0]==" "){
