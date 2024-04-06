@@ -18,6 +18,7 @@ function Body() {
   },[])
 
   return (
+    <>
     <BrowserRouter>
         <Routes>
             <Route path='/' element={<Login/>}></Route>
@@ -25,6 +26,8 @@ function Body() {
             <Route path="/movie/:id" element={<MovieDetail/>}></Route>
         </Routes>
     </BrowserRouter>
+    </>
+    
   )
 }
 

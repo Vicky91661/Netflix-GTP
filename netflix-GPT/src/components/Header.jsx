@@ -7,6 +7,7 @@ import { addGeminiMovies, gptToggleFun } from '../utils/gptSlice'
 function Header() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const isToggle = useSelector((state)=>state.gpt.gptToggleButton)
 
   const name = useSelector((state) => state.user.name)
 
@@ -19,14 +20,20 @@ function Header() {
     dispatch(addGeminiMovies({geminiMoviesName:null,geminiMovies:null}))
     dispatch(gptToggleFun())
   }
+  function logoutHandlerInImag(){
+    if(isToggle){
+      dispatch(addGeminiMovies({geminiMoviesName:null,geminiMovies:null}))
+      dispatch(gptToggleFun())
+    }
+  }
 
   
 
   return (
-    <div className='bg-black md:bg-transparent py-2 md:py-0 md:absolute  top-1 z-20'>
+    <div className={`bg-black md:bg-transparent py-2 md:py-0 md:absolute md:top-1 md:z-20 ${isToggle ? "fixed" : ""}`}>
       <div className='w-[97.5vw] flex justify-between md:px-5 xl:px-[74px]'>
           <div>
-            <img className=' w-[32vw] md:w-[24vw] lg:w-[20vw] xl:lg:w-[10vw]' src={LOGO} alt="logoi" />
+            <img onClick={logoutHandlerInImag} className=' cursor-pointer w-[32vw] md:w-[24vw] lg:w-[20vw] xl:lg:w-[10vw]' src={LOGO} alt="logoi" />
           </div>
           {
             name &&<div className=' flex items-center gap-2 md:gap-5'>

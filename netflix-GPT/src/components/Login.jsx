@@ -39,10 +39,10 @@ function Login() {
         setError(isError)
         if(!isError){
             if(isSignIn){
-                axios.post("http://localhost:3000/signin",{
+                axios.post("http://localhost:3000/user/signin",{
                     email:email.current.value,
                     password:password.current.value,
-                    isSignin:true   
+                    isSignin:true
                 }).then((response)=>{
                     dispatch(addUser({
                         name:response.data.name,
