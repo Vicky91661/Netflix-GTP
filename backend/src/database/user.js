@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
-mongoose.connect('mongodb+srv://vicky:v8797572731@cluster0.ufffkaf.mongodb.net/netflixGPT')
+require('dotenv').config()
+mongoose.connect(process.env.MONGODB_URL)
   .then(() => console.log('Connected!'));
 const userSchema = mongoose.Schema({
     name:{
