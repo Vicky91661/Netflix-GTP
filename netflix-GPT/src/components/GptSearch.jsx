@@ -30,7 +30,7 @@ function GptSearch() {
             const userData = localStorage.getItem('user')
             const {token}=JSON.parse(userData)
             console.log(token)
-            const response = await axios.post("http://localhost:3000/gpt/gptSearch",{prompt},{ 
+            const response = await axios.post("https://netflix-backend-five.vercel.app/gpt/gptSearch",{prompt},{ 
                 headers: {
                   token
                 }})

@@ -39,7 +39,7 @@ function Login() {
         setError(isError)
         if(!isError){
             if(isSignIn){
-                axios.post("http://localhost:3000/user/signin",{
+                axios.post("https://netflix-backend-five.vercel.app/user/signin",{
                     email:email.current.value,
                     password:password.current.value,
                     isSignin:true
@@ -54,7 +54,7 @@ function Login() {
                     setError(error.response.data.message)
                 })
             }else{
-                axios.post("http://localhost:3000/signin",{
+                axios.post("https://netflix-backend-five.vercel.app/user/signin",{
                     name:name.current.value,
                     email:email.current.value,
                     password:password.current.value,
