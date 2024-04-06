@@ -2,8 +2,9 @@ const { User } = require("../database/user");
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
 
-const jwt_secret_key = "vicky"
-const saltRounds = 10;
+require('dotenv').config()
+const jwt_secret_key = process.env.JWT_SECRET_KEY;
+const saltRounds = process.env.SALT_ROUNDS;
 
 const userSignin = async(req,res)=>{
         const email = req.body.email;
