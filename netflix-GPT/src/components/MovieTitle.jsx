@@ -1,22 +1,13 @@
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
 
 function MovieTitle({movieid,title,description}) {
-
-  const navigate = useNavigate()
-
-  const handleMovieInfo = ()=>{
-  
-    navigate(`/movie/${movieid}`)
-  }
-
   return (
-    <div className=' absolute  text-white w-[70vw]  md:w-[60vw] top-[19vh] left-[5vw] md:top-[17vh] lg:top-[18vh] xl:top-[40vh] xl:w-[30vw] xl:left-[5vw] md:left-[5vw]  flex flex-col gap-2 md:gap-5 z-50'>
+    <div className=' absolute text-white w-[70vw]  md:w-[60vw] top-[19vh] left-[5vw] md:top-[17vh] lg:top-[18vh] xl:top-[20vh] 2xl:top-[40vh] xl:w-[30vw] xl:left-[5vw] md:left-[5vw]  flex flex-col gap-2 md:gap-5 z-20'>
         <h1 className=' text-base font-medium md:font-bold md:text-2xl lg:text-3xl xl:text-5xl'>{title}</h1>
         <h1 className='hidden md:flex xl:text-xl md:text-base md:font-normal '>{description}</h1>
         <div className='flex gap-4'>
-          <button  onClick={()=>handleMovieInfo} className='bg-white z-50 hover:bg-gray-200 text-black px-4 py-[2px] text-xs md:py-2 md:px-12 md:text-lg rounded-md'>Play</button>
-          <button className='bg-black bg-opacity-80 hover:opacity-100 px-4 py-[2px] text-xs md:py-2 md:px-12 md:text-lg rounded-md'
-          onClick={()=>handleMovieInfo}>More Info</button>
+          <button className='bg-white hover:bg-gray-200 text-black px-4 py-[2px] text-xs md:py-2 md:px-12 md:text-lg rounded-md'>Play</button>
+          <button className='bg-black bg-opacity-80 hover:opacity-100 px-4 py-[2px] text-xs md:py-2 md:px-12 md:text-lg rounded-md'>More Info</button>
         </div> 
     </div>
   )
