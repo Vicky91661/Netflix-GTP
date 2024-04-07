@@ -17,7 +17,7 @@ function Browse() {
   useUpcomingMovies()
   const isUser = useSelector((state) => state.user.name)
   const istoggle = useSelector((state)=>state.gpt.gptToggleButton)
-  console.log("inside the broswer user is",isUser)
+
   const navigate = useNavigate()
 
   useEffect(()=>{

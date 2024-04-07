@@ -14,7 +14,7 @@ function VideoSection({movieid}) {
             const trailer = trailers.length ?trailers[0]:movieVideo[0]
             setKey(trailer.key);    
         } catch (error) {
-            console.log("error inside the video section",error)
+           
         }
         
     }
@@ -24,9 +24,9 @@ function VideoSection({movieid}) {
     }, []);
 
     return (
-        <div className='overflow-hidden relative'>
+        <div className='overflow-hidden relative -z-10'>
             <div className=' absolute w-[100vw] aspect-video bg-gradient-to-r from-black z-10'></div>
-             {key && <div className='w-[100vw]'>
+             {key && <div className='w-[100vw] '>
                 <iframe 
                 className='w-[100vw] aspect-video scale-150' 
                 src={`https://www.youtube.com/embed/${key}?autoplay=1&loop=1&playlist=${key}&mute=1&controls=0`} 

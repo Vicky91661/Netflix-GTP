@@ -9,7 +9,7 @@ import { addGeminiMovies } from '../utils/gptSlice.js';
 
 function Login() {
     const isUser = useSelector((state) => state.user.name)
-    console.log("inside the login page user is  ",isUser)
+   
     const email= useRef(null)
     const password= useRef(null)
     const name= useRef(null)

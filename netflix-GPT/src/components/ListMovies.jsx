@@ -2,7 +2,7 @@ import React from 'react'
 import MovieCard from './MovieCard'
 
 function ListMovies({title,movies}) {
-  console.log("inside the movie list component",movies)
+  
   return (
     <div className='py-1 pl-3 gap-1 md:py-3 md:pl-12 flex flex-col md:gap-3'>
       <h1 className='md:text-2xl'>{title}</h1>

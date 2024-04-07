@@ -18,7 +18,7 @@ function MovieDetail() {
 
     const fetchMovieDetail = async ()=>{
         const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}`,options)
-        console.log(response.data)
+        
         const {title,overview,poster_path,vote_average,runtime}=response.data;
         let hour = Math.floor(runtime/60)
         let min = runtime%60
@@ -35,7 +35,7 @@ function MovieDetail() {
             rating:vote_average,
             runtime:new_runtime
         })
-        console.log("movie details is ",title,overview,poster_path,vote_average,runtime)
+       
     }
     
     const fetchTrailer = async ()=>{
@@ -47,7 +47,7 @@ function MovieDetail() {
             const trailer = trailers.length ?trailers[0]:movieVideo[0]
             setKey(trailer.key);    
         } catch (error) {
-            console.log("error inside the video section",error)
+            
         }
         
     }
@@ -77,7 +77,7 @@ function MovieDetail() {
             movieDetails && 
             <div className='text-white flex w-[100vw] md:h-[90vh]  md:gap-7 '>
                 {isTrailer && key && 
-                <div className=' absolute w-[90vw] z-20'>
+                <div className=' absolute w-[90vw] z-20 top-[50%] md:top-[20%] xl:top-[7%]'>
                             <button className=' absolute -right-5 top-2  md:-right-8 xl:-right-24 md:top-8 z-30 text-lg md:text-2xl bg-white rounded-full w-12 h-12  md:w-16 md:h-16 text-balance' onClick={()=>setIsTrailer(false)}>❌</button>
                             <iframe 
                             className='w-[100vw] aspect-video scale-90 bg-red-900' 
@@ -87,7 +87,7 @@ function MovieDetail() {
                             >
                             </iframe>
                 </div>}
-                <div className='flex flex-col md:flex-row mr-10 mt-5 mb-5 md:mt-0 md:mb-0 items-center gap-3 md:gap-7'>
+                <div className='flex flex-col md:flex-row mx-10 mt-5 mb-5 md:mt-0 md:mb-0 items-center gap-3 md:gap-7'>
                     <div className='flex items-center justify-center md:w-1/2 shadow-2xl rounded-lg'>
                         <img className=' object-cover object-center rounded-lg' src={IMG_URL+movieDetails.poster_path} alt="movies poster" />
                     </div>

@@ -11,7 +11,7 @@ function useTopRatedMovies() {
     const url = 'https://api.themoviedb.org/3/movie/top_rated?page=1';
     async function fetchTopRatedMovies(){
       if(topRatedMovies){
-        console.log("it's inside topRatedMovies movie")
+   
         return; 
       }
       const response = await axios.get(url,options)

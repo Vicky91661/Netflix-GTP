@@ -17,7 +17,7 @@ function GptSearch() {
             const response = await axios.get("https://api.themoviedb.org/3/search/movie?query="+SearchString+"&include_adult=false&page=1",options)
             return response.data.results;
         } catch (error) {
-            console.log("error while fetching movies in gimini movies",error)
+            
         }     
     }
 
@@ -29,7 +29,7 @@ function GptSearch() {
         try {
             const userData = localStorage.getItem('user')
             const {token}=JSON.parse(userData)
-            console.log(token)
+    
             const response = await axios.post("https://netflix-backend-five.vercel.app/gpt/gptSearch",{prompt},{ 
                 headers: {
                   token
@@ -49,7 +49,7 @@ function GptSearch() {
             const TMDB_Movies =await Promise.all(movies_Promise)
             dispatch(addGeminiMovies({geminiMoviesName:GiminiMovies,geminiMovies:TMDB_Movies}))
         } catch (error) {
-            console.log(error)
+           
         } finally {
             setLoading(false); // Set loading to false when the request is completed
         }

@@ -4,7 +4,7 @@ var bcrypt = require('bcrypt');
 
 require('dotenv').config()
 const jwt_secret_key = process.env.JWT_SECRET_KEY;
-const saltRounds = process.env.SALT_ROUNDS;
+const saltRounds = Number(process.env.SALT_ROUNDS);
 
 const userSignin = async(req,res)=>{
         const email = req.body.email;
@@ -68,7 +68,6 @@ const userSignin = async(req,res)=>{
                    
                 }
             } catch (error) {
-                console.log("Error:", error);
                 return res.status(400).json({ message: "Something went wrong" });
             }
     

@@ -11,7 +11,7 @@ function useNowPlaying() {
     const url = 'https://api.themoviedb.org/3/movie/now_playing?page=1';
     async function fetchNowPlayingMovies(){
         if(NowPlayingMovies){
-          console.log("it's inside now playing movie")
+         
           return; 
         }
         const response = await axios.get(url,options)

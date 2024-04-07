@@ -13,7 +13,7 @@ function HeroSection() {
 
   return (
     <div>
-        <MovieTitle title={original_title} description = {overview}/>
+        <MovieTitle movieid={movieid} title={original_title} description = {overview}/>
         <VideoSection movieid={movieid}/>
         
     </div>
